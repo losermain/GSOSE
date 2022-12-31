@@ -1,0 +1,31 @@
+sudo rpm -e swiagent
+
+rpm -qa |grep swiagent
+
+wget http://spacewalk-101w.dev.activenetwork.com/pub/swiagent-2020-2-5-2593.tar.gz
+
+sudo tar xvf swiagent-2020-2-5-2593.tar.gz
+
+sudo ./install.sh
+
+sudo rm -rf *
+
+ps -ef |grep swiagent
+
+ Once installation done then 
+
+you need to update TLS 1.2 on both files
+
+/opt/SolarWinds/Agent/bin/swiagent.cfg
+/opt/SolarWinds/Agent/bin/swiagentd.pid
+Find both files and replace TLS10 to TLS12
+========================
+ 
+For reference solaragent:
+muddin@bastion-02w.aw.active.tan's password:
+Last login: Tue Jul 6 20:31:06 2021 from 10.220.225.56
+-sh-4.2$ ll
+total 8
+-rw-r--r-- 1 muddin unixusers 147 Jul 6 20:31 hosts
+-rw-r--r-- 1 muddin unixusers 1221 Jun 29 17:05 solaragent.yml
+-sh-4.2$
